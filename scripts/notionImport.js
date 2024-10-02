@@ -41,8 +41,7 @@ n2m.setCustomTransformer("image", async (block) => {
   }
 });
 
-const writeContent = (content, section) => {
-  const path = `content/german/${section}/${content.title}.md`;
+const writeContent = (content, path) => {
   const frontmatter = YAML.stringify({
     ...content,
     markdown: undefined,
@@ -61,6 +60,8 @@ const writeContent = (content, section) => {
 
 
 const loadProjects = async () => {
+  await deleteFiles("projekte");
+
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID_PROJECTS
   });
@@ -87,19 +88,21 @@ const loadProjects = async () => {
     }
 
     if (page.cover?.type == "external") {
-      project["image"] = await download(page.cover.external.url, "images");
+      project["image"] = await download(page.cover.external.url, "images/projects");
     } else if (page.cover?.type == "file") {
-      project["image"] = await download(page.cover.file.url, "images");
+      project["image"] = await download(page.cover.file.url, "images/projects");
     }
 
     const mdblocks = await n2m.pageToMarkdown(page.id);
     project["markdown"] = n2m.toMarkdownString(mdblocks).parent;
 
-    writeContent(project, "projekte");
+    writeContent(project, `content/german/projekte/${project["title"]}.md`);
   }
 };
 
 const loadServices = async () => {
+  await deleteFiles("leistungen");
+
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID_SERVICES,
   });
@@ -115,16 +118,62 @@ const loadServices = async () => {
     service["tags"] = props.Tags.multi_select.map((tag) => tag.name);
 
     if (page.cover?.type == "external") {
-      service["image"] = await download(page.cover.external.url, "images");
+      service["image"] = await download(page.cover.external.url, "images/services");
     } else if (page.cover?.type == "file") {
-      service["image"] = await download(page.cover.file.url, "images");
+      service["image"] = await download(page.cover.file.url, "images/services");
     }
 
     const mdblocks = await n2m.pageToMarkdown(page.id);
     service["markdown"] = n2m.toMarkdownString(mdblocks).parent;
 
-    writeContent(service, "leistungen");
+    writeContent(service, `content/german/leistungen/${service["title"]}.md`);
   }
+}
+
+const loadTestimonials = async () => {
+  const { results } = await notion.blocks.children.list({
+    block_id: process.env.NOTION_BLOCK_ID_TESTIMONIALS,
+  });
+
+  const md = {
+    enable: true,
+    _build: {
+      render: "never"
+    }
+  };
+
+  for (const block of results) {
+    if (block.type.startsWith("heading")) {
+      md["title"] = block[block.type].rich_text[0].plain_text;
+    } else if (block.type.startsWith("paragraph")) {
+      md["description"] = block[block.type].rich_text[0].plain_text;
+    } else if (block.type === "child_database") {
+      const response = await notion.databases.query({
+        database_id: process.env.NOTION_DATABASE_ID_TESTIMONIALS,
+      });
+
+      md["testimonials"] = [];
+
+      for (const testimonial of response.results) {
+        const contact = await notion.pages.retrieve({
+          page_id: testimonial.properties.Kontakt.relation[0].id });
+        
+        md["testimonials"].push({
+          name: contact.properties.Name.title[0].plain_text,
+          designation: testimonial.properties.Position.title[0].plain_text,
+          avatar: await download(contact.icon.file.url, "images/testimonials"),
+          content: await n2m.pageToMarkdown(testimonial.id)
+            .then((blocks) => n2m.toMarkdownString(blocks).parent.trim())
+        });
+      };
+
+      md["testimonials"].reverse();
+    } else {
+      throw new Error(`Unknown block type: ${block.type}`);
+    }
+  }
+
+  writeContent(md, `content/german/sections/testimonial.md`);
 }
 
 const deleteUnusedImages = async () => {
@@ -155,11 +204,15 @@ const deleteFiles = async (section) => {
 };
 
 (async () => {
-  await deleteFiles("projekte");
+  console.log("Loading Projects...");
   await loadProjects();
 
-  await deleteFiles("leistungen");
+  console.log("Loading Services...");
   await loadServices();
 
+  console.log("Loading Testimonials...");
+  await loadTestimonials();
+
+  console.log("Deleting unused images...");
   await deleteUnusedImages();
 })();

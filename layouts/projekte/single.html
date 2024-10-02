@@ -14,15 +14,15 @@
                 {{ partial "components/avatar" (dict "Url" .Params.authorAvatar "Class" "mr-2") }}{{ .Params.author }}
               </a>
             </li>
-            {{ $services:= .Params.services }}
-            {{ if $services }}
+            {{ $categories:= .Params.categories }}
+            {{ if $categories }}
               <li class="mr-4 inline-block">
                 <i class="fa-regular fa-folder mr-1"></i>
-                {{ range $i,$p:= $services }}
+                {{ range $i,$p:= $categories }}
                   <a
                     href="{{ `leistungen/` | relLangURL }}{{ . | urlize | lower }}/"
                     class=""
-                    >{{ . }}{{ if ne $i (sub (len $services) 1) }}{{ "," }}
+                    >{{ . }}{{ if ne $i (sub (len $categories) 1) }}{{ "," }}
                     {{ end }}
                   </a>
                 {{ end }}

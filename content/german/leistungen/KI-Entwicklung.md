@@ -4,7 +4,7 @@ date: 2024-10-02T11:22:00.000Z
 lastmod: 2024-10-02T11:53:00.000Z
 notionUrl: https://www.notion.so/KI-Entwicklung-c995591e66e04719b1045cdd349f1338
 tags: []
-image: images/met_winslow_homer_maine_coast.jpg
+image: images/services/met_winslow_homer_maine_coast.jpg
 include_footer: true
 ---
 

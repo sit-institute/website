@@ -6,7 +6,7 @@ notionUrl: https://www.notion.so/IT-Beratung-4f3fac59b4b2429c9c17fd2783759283
 tags:
   - Startup
   - Digitalisierung
-image: images/rijksmuseum_vermeer_the_milkmaid.jpg
+image: images/services/rijksmuseum_vermeer_the_milkmaid.jpg
 include_footer: true
 ---
 
