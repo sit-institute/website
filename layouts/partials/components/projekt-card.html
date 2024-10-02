@@ -12,7 +12,7 @@
   {{ if $categories }}
     <ul class="mb-4">
       <li class="mr-4 inline-block">
-        <a href="{{ `authors/` | relLangURL }}{{ .Params.Author | urlize }}/">
+        <a href="{{ `team/` | relLangURL }}{{ .Params.Author | urlize }}/">
             {{ partial "components/avatar" (dict "Url" .Params.authorAvatar "Class" "mr-1") }}
             {{ .Params.author }}
         </a>
@@ -21,7 +21,7 @@
         <i class="fa-regular fa-folder mr-1"></i>
         {{ range $i,$p:= $categories }}
           <a
-            href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/"
+            href="{{ `leistungen/` | relLangURL }}{{ . | urlize | lower }}/"
             class=""
             >{{ . }}{{ if ne $i (sub (len $categories) 1) }}{{ "," }}
             {{ end }}

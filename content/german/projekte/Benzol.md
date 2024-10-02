@@ -7,12 +7,11 @@ tags:
   - n8n
   - NiFi
 categories:
-  - KI-Anwendung
-  - IT-Beratung
+  - KI-Entwicklung
 author: Karsten
 authorAvatar: https://s3-us-west-2.amazonaws.com/public.notion-static.com/ba9aa321-8e1e-4995-bbfd-7e2e8c92efcf/Wendt_Karsten_Dr_Ing__MKR05306.jpg
 date: 2024-09-27T08:33:00.000Z
-lastmod: 2024-10-02T08:49:00.000Z
+lastmod: 2024-10-02T11:40:00.000Z
 notionUrl: https://www.notion.so/Benzol-10ebe61fc1ef80eba02cf14dcb1d0e24
 image: images/azores-wallpaper-3840x2160.jpg
 include_footer: true
