@@ -2,7 +2,6 @@
 .content img {
     @apply rounded w-full;
     @apply mb-2;
-    // margin-bottom: 1rem!important;
 }
 
 .content h2 {
@@ -19,4 +18,8 @@
 
 .share-link {
     @apply my-0 mx-1;
+}
+
+.content :first-child {
+    @apply mt-0;
 }

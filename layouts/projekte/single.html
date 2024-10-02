@@ -38,7 +38,7 @@
             {{ $image:= .Params.image }}
             {{ if $image }}
             <div class="md:float-left not-prose md:mr-8">
-              {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "cover" "Size" "300x") }}
+              {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "cover" "Size" "400x") }}
             </div>
             {{ end }}
             <div>
@@ -78,15 +78,15 @@
       </div>
 
       <!-- Related posts -->
-      {{ $related := (where site.RegularPages "Section" "in" site.Params.mainSections) | intersect (where site.RegularPages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) }}
+      {{ $related := (where site.RegularPages "Section" "==" "projekte") | intersect (where site.RegularPages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) }}
       {{ $related = $related | shuffle | first 3 }}
       {{ with $related }}
         <div class="section pb-0">
-          <h2 class="h3 mb-12">{{ T "related_posts" }}</h2>
+          <h2 class="h3 mb-12">{{ T "related_projects" }}</h2>
           <div class="row">
             {{ range . }}
               <div class="lg:col-4 md:col-6 mb-14">
-                {{ partial "components/blog-card" . }}
+                {{ partial "components/projekt-card" . }}
               </div>
             {{ end }}
           </div>
