@@ -1,9 +1,8 @@
 ############# German navigation ##############
 
-# main menu
 [[main]]
-name = "Home"
-url = "/"
+name = "Leistungen"
+url = "/leistungen"
 weight = 1
 
 [[main]]
@@ -12,57 +11,21 @@ url = "/projekte"
 weight = 2
 
 [[main]]
-name = "About"
-url = "/about"
-weight = 2
-
-[[main]]
-name = "Elements"
-url = "/elements"
+name = "Team"
+url = "/team"
 weight = 3
 
 [[main]]
+name = "Kontakt"
+url = "/kontakt"
 weight = 4
-name = "Pages"
-
-[[main]]
-parent = "Pages"
-name = "Blog"
-url = "/blog"
-
-[[main]]
-parent = "Pages"
-name = "Contact"
-url = "/contact"
-
-[[main]]
-parent = "Pages"
-name = "Authors"
-url = "/authors"
-
-[[main]]
-parent = "Pages"
-name = "Categories"
-url = "/categories"
-
-[[main]]
-parent = "Pages"
-name = "404 Page"
-url = "/404"
-
-
-# footer menu
-[[footer]]
-name = "About"
-url = "/about"
-weight = 1
 
 [[footer]]
-name = "Elements"
-url = "/elements"
-weight = 2
-
-[[footer]]
-name = "Privacy Policy"
-url = "/privacy-policy"
+name = "Datenschutz"
+url = "/datenschutz"
 weight = 3
+
+[[footer]]
+name = "Impressum"
+url = "/impressum"
+weight = 4

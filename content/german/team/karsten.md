@@ -1,8 +1,8 @@
 ---
-title: John Doe
-email: johndoe@email.com
+title: Karsten Wendt
+# email: johndoe@email.com
 image: "/images/avatar.png"
-description: this is meta description
+# description: this is meta description
 social:
   - name: github
     icon: fa-brands fa-github
