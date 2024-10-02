@@ -54,6 +54,12 @@ jobs:
 
       - name: Import Contents
         run: npm run notion-import
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID_PROJECTS: ${{ vars.NOTION_DATABASE_ID_PROJECTS }}
+          NOTION_DATABASE_ID_SERVICES: ${{ vars.NOTION_DATABASE_ID_SERVICES }}
+          NOTION_DATABASE_ID_TESTIMONIALS: ${{ vars.NOTION_DATABASE_ID_TESTIMONIALS }}
+          NOTION_BLOCK_ID_TESTIMONIALS: ${{ vars.NOTION_BLOCK_ID_TESTIMONIALS }}
 
       - name: Publish to GitHub Pages
         run: npm run build
