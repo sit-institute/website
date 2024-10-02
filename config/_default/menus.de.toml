@@ -7,6 +7,11 @@ url = "/"
 weight = 1
 
 [[main]]
+name = "Projekte"
+url = "/projekte"
+weight = 2
+
+[[main]]
 name = "About"
 url = "/about"
 weight = 2

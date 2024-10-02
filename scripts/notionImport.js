@@ -1,19 +1,16 @@
-import { config } from "dotenv";
+require("dotenv").config();
 
-config();
-
-import { Client } from "@notionhq/client";
-import { NotionToMarkdown } from "notion-to-md";
-import { Downloader } from "nodejs-file-downloader";
-import { existsSync, writeFile, readFileSync, readdirSync } from "fs";
-import { unlinkSync } from "fs";
-import YAML from 'yaml';
-import { join } from "path";
+const { Client } = require("@notionhq/client");
+const { NotionToMarkdown } = require("notion-to-md");
+const { Downloader } = require("nodejs-file-downloader");
+const { existsSync, writeFile, readFileSync, readdirSync, unlinkSync } = require("fs");
+const { join } = require("path");
+const YAML = require('yaml');
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
-const previousImages = JSON.parse(readFileSync("notion/images.json", "utf8"));
+const previousImages = JSON.parse(readFileSync("notion-images.json", "utf8"));
 const currentImages = [];
 
 const download = async (url, path) => {
@@ -45,7 +42,7 @@ n2m.setCustomTransformer("image", async (block) => {
 });
 
 const writeContent = (content, section) => {
-  const path = `content/${section}/${content.title}.md`;
+  const path = `content/german/${section}/${content.title}.md`;
   const frontmatter = YAML.stringify({
     ...content,
     markdown: undefined,
@@ -114,7 +111,7 @@ const deleteUnusedImages = async () => {
     }
   });
 
-  writeFile("notion/images.json", JSON.stringify(currentImages, null, 2), (err) => {
+  writeFile("notion-images.json", JSON.stringify(currentImages, null, 2), (err) => {
     if (err) {
       throw err;
     }
@@ -122,8 +119,8 @@ const deleteUnusedImages = async () => {
 };
 
 const deleteProjectFiles = async () => {
-  const path = "content/projekte";
-  const files = readdirSync("content/projekte");
+  const path = "content/german/projekte";
+  const files = readdirSync("content/german/projekte");
 
   files.forEach((file) => {
     if (file !== "_index.md" && file.endsWith(".md")) {
