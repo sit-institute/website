@@ -1,0 +1,4 @@
+{{ $avatar := (resources.GetRemote .Url).Fill "32x32 center webp q85" }}
+<img src="{{ $avatar.Permalink }}"
+    alt="{{ .Params.author }}"
+    class="rounded-full inline-block {{ .Class }}" />

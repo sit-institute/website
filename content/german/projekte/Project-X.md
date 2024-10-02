@@ -1,26 +1,21 @@
 ---
 title: Project-X
 publishDate: 2024-09-30
-summary: Project-X is a horizontally scrolling shooter for the Amiga released in
-  1992. It was developed and published by Team17. The game resembles Konami's
-  side-scrolling shooter games such as Gradius, Salamander and Parodius. It was
-  ported to MS-DOS.
+summary: Erlebe in Project-X spannende Weltraumkämpfe gegen feindliche Droiden
+  und kämpfe dich durch herausfordernde Level.
 tags:
   - n8n
-  - nifi
-author:
-  name: Peter
-  avatar: https://s3-us-west-2.amazonaws.com/public.notion-static.com/e182a09e-e735-4e8a-af57-1a256e62ae88/1722775800036.jpeg
+  - NiFi
+categories:
+  - Datenintegration
+author: Peter
+authorAvatar: https://s3-us-west-2.amazonaws.com/public.notion-static.com/e182a09e-e735-4e8a-af57-1a256e62ae88/1722775800036.jpeg
 date: 2024-09-30T09:16:00.000Z
-lastmod: 2024-10-01T09:13:00.000Z
+lastmod: 2024-10-02T10:46:00.000Z
 notionUrl: https://www.notion.so/Project-X-111be61fc1ef80a2ac51d8cb2441cb00
-images:
-  - images/woodcuts_sekka_1.jpg
+image: images/woodcuts_sekka_1.jpg
 include_footer: true
 ---
-
-
-## Plot
 
 
 Taking place many years in the future in colonized space, military scientists have disposed of countless, defective military droids on an un-colonized terrestrial planet called Ryxx. The droids eventually become sentient and, by way of revenge, start an attack against mankind, using a station to continually create more war machines. It is the player's mission to undergo Project X and eliminate the droid forces.
