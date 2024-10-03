@@ -5,30 +5,22 @@
 <section class="section-sm">
   <div class="container">
     <div class="row justify-center">
-      <div class="lg:col-10">
-        <div class="grid grid-cols-2 gap-10">
-          <div>
-            {{ $projects := (where site.RegularPages "Section" "eq" "projekte") }}
-            {{ $categories := slice .Title }}
-            {{ $related := where $projects "Params.categories" "intersect" $categories }}
-            {{ with ($related | shuffle | first 3) }}
-            <div class="container">
-              {{ range . }}
-              <div class="row mb-10">
-                <div>
-                  {{ partial "components/projekt-card" . }}
-                </div>
-              </div>
-              {{ end }}
-            </div>
-            {{ end }}
-          </div>
-          <div class="content">
-            {{ .Content }}
-          </div>
-        </div>
+      <div class="lg:col-8 xl:col-6 lg:pr-10 mb-5 content">
+        {{ .Content }}
+      </div>
+      <div class="lg:col-4 xl:col-4">
+        <h5 class="mb-6">{{ T "related_projects" }}</h2>
+        {{ $projects := (where site.RegularPages "Section" "eq" "projekte") }}
+        {{ $categories := slice .Title }}
+        {{ $related := where $projects "Params.categories" "intersect" $categories }}
+        {{ with ($related | shuffle | first 3) }}
+        {{ range . }}
+            {{ partial "components/projekt-card" . }}
+        {{ end }}
+        {{ end }}
       </div>
     </div>
   </div>
+</div>
 </section>
 {{ end }}

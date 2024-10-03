@@ -23,3 +23,7 @@
 .content :first-child {
     @apply mt-0;
 }
+
+.content :last-child {
+    @apply mb-0;
+}

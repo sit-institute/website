@@ -3,20 +3,20 @@
   {{ if $image }}
     {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mb-6 w-full rounded" "Command" "Fill" "Size" "400x170 center") }}
   {{ end }}
-  <h4 class="mb-3">
-    <a href="{{ .RelPermalink }}">
-      {{ .Title }}
+  <div class="flex justify-between mb-2">
+    <h4 class="">
+      <a href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    </h4>
+    <a href="{{ `team/` | relLangURL }}{{ .Params.Author | urlize }}/">
+      {{ partial "components/avatar" (dict "Url" .Params.authorAvatar "Class" "mr-1") }}
+      {{/*  {{ .Params.author }}  */}}
     </a>
-  </h4>
+  </div>
   {{ $categories:= .Params.categories }}
   {{ if $categories }}
     <ul class="mb-4">
-      <li class="mr-4 inline-block">
-        <a href="{{ `team/` | relLangURL }}{{ .Params.Author | urlize }}/">
-            {{ partial "components/avatar" (dict "Url" .Params.authorAvatar "Class" "mr-1") }}
-            {{ .Params.author }}
-        </a>
-      </li>
       <li class="mr-4 inline-block">
         <i class="fa-regular fa-folder mr-1"></i>
         {{ range $i,$p:= $categories }}
