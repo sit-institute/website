@@ -22,6 +22,12 @@ testimonials:
     avatar: images/testimonials/1646488689270.jpeg
     content: Vielen Dank für die sehr professionelle Zusammenarbeit und die
       zielorientierten, pragmatischen Ideen.
+  - name: Frank Matthes
+    designation: Geschäftsführer
+    avatar: images/testimonials/rect1.png
+    content: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+      diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
 include_footer: true
 ---
 

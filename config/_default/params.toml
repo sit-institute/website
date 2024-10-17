@@ -47,7 +47,7 @@ link = "#kennenlernen"
 [search]
 enable = true
 primary_color = "#121212"
-include_sections = ["leistungen", "projekte"]
+include_sections = ["kompetenzen", "projekte"]
 show_image = true
 show_description = true
 show_tags = true

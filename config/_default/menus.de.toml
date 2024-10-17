@@ -1,8 +1,8 @@
 ############# German navigation ##############
 
 [[main]]
-name = "Leistungen"
-url = "/leistungen"
+name = "Kompetenzen"
+url = "/kompetenzen"
 weight = 1
 
 [[main]]

@@ -101,7 +101,7 @@ const loadProjects = async () => {
 };
 
 const loadServices = async () => {
-  await deleteFiles("leistungen");
+  await deleteFiles("kompetenzen");
 
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID_SERVICES,
@@ -126,7 +126,7 @@ const loadServices = async () => {
     const mdblocks = await n2m.pageToMarkdown(page.id);
     service["markdown"] = n2m.toMarkdownString(mdblocks).parent;
 
-    writeContent(service, `content/german/leistungen/${service["title"]}.md`);
+    writeContent(service, `content/german/kompetenzen/${service["title"]}.md`);
   }
 }
 

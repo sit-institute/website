@@ -28,7 +28,7 @@ shortname = 'themefisher-template' # we use disqus to show comments in blog post
 
 ########################## Permalinks ############################
 [permalinks]
-    categories = "/leistungen/:slug/"
+    categories = "/kompetenzen/:slug/"
 
 [permalinks.page]
 "pages" = "/:slugorfilename/"

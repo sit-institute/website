@@ -17,7 +17,7 @@
                 <i class="fa-regular fa-folder mr-1"></i>
                 {{ range $i,$p:= $categories }}
                   <a
-                    href="{{ `leistungen/` | relLangURL }}{{ . | urlize | lower }}/"
+                    href="{{ `kompetenzen/` | relLangURL }}{{ . | urlize | lower }}/"
                     class=""
                     >{{ . }}{{ if ne $i (sub (len $categories) 1) }}{{ "," }}
                     {{ end }}
