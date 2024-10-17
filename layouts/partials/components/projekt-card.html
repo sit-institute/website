@@ -9,9 +9,8 @@
         {{ .Title }}
       </a>
     </h4>
-    <a href="{{ `team/` | relLangURL }}{{ .Params.Author | urlize }}/">
+    {{ with .Params.author }}<a title="{{ . }}">{{ end }}
       {{ partial "components/avatar" (dict "Url" .Params.authorAvatar "Class" "mr-1") }}
-      {{/*  {{ .Params.author }}  */}}
     </a>
   </div>
   {{ $categories:= .Params.categories }}

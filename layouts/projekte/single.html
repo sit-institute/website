@@ -9,10 +9,7 @@
           </h1>
           <ul class="mb-4">
             <li class="mr-4 inline-block">
-              <a
-                href="{{ `team/` | relLangURL }}{{ .Params.Author | urlize }}/">
-                {{ partial "components/avatar" (dict "Url" .Params.authorAvatar "Class" "mr-2") }}{{ .Params.author }}
-              </a>
+              {{ partial "components/avatar" (dict "Url" .Params.authorAvatar "Class" "mr-2") }}{{ .Params.author }}
             </li>
             {{ $categories:= .Params.categories }}
             {{ if $categories }}

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Karsten Wendt
 # email: johndoe@email.com
 image: "/images/avatar.png"
