@@ -75,15 +75,15 @@
       </div>
 
       <!-- Related posts -->
-      {{ $related := (where site.RegularPages "Section" "==" "projekte") | intersect (where site.RegularPages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) }}
+      {{ $related := (where site.RegularPages "Section" "==" "case-studies") | intersect (where site.RegularPages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) }}
       {{ $related = $related | shuffle | first 3 }}
       {{ with $related }}
         <div class="section pb-0">
-          <h2 class="h3 mb-12">{{ T "related_projects" }}</h2>
+          <h2 class="h3 mb-12">{{ T "related_case_studies" }}</h2>
           <div class="row">
             {{ range . }}
               <div class="lg:col-4 md:col-6 mb-14">
-                {{ partial "components/projekt-card" . }}
+                {{ partial "components/case-study-card" . }}
               </div>
             {{ end }}
           </div>

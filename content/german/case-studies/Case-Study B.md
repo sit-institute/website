@@ -1,5 +1,5 @@
 ---
-title: Benzol
+title: Case-Study B
 publishDate: 2024-09-25
 summary: Benzol, eine aromatische Verbindung, ist ein wichtiges petrochemisches
   Zwischenprodukt mit gesundheitlichen Risiken.
@@ -11,9 +11,9 @@ categories:
 author: Karsten
 authorAvatar: https://s3-us-west-2.amazonaws.com/public.notion-static.com/ba9aa321-8e1e-4995-bbfd-7e2e8c92efcf/Wendt_Karsten_Dr_Ing__MKR05306.jpg
 date: 2024-09-27T08:33:00.000Z
-lastmod: 2024-10-02T11:40:00.000Z
-notionUrl: https://www.notion.so/Benzol-10ebe61fc1ef80eba02cf14dcb1d0e24
-image: images/projects/azores-wallpaper-3840x2160.jpg
+lastmod: 2024-10-17T14:41:00.000Z
+notionUrl: https://www.notion.so/Case-Study-B-10ebe61fc1ef80eba02cf14dcb1d0e24
+image: images/case-studies/azores-wallpaper-3840x2160.jpg
 include_footer: true
 ---
 

@@ -10,12 +10,12 @@
       </div>
       <div class="lg:col-4 xl:col-4">
         <h5 class="mb-6">{{ T "related_projects" }}</h2>
-        {{ $projects := (where site.RegularPages "Section" "eq" "projekte") }}
+        {{ $projects := (where site.RegularPages "Section" "eq" "case-studies") }}
         {{ $categories := slice .Title }}
         {{ $related := where $projects "Params.categories" "intersect" $categories }}
         {{ with ($related | shuffle | first 3) }}
         {{ range . }}
-            {{ partial "components/projekt-card" . }}
+            {{ partial "components/case-study-card" . }}
         {{ end }}
         {{ end }}
       </div>

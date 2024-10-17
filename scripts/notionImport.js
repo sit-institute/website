@@ -59,44 +59,44 @@ const writeContent = (content, path) => {
 };
 
 
-const loadProjects = async () => {
-  await deleteFiles("projekte");
+const loadCaseStudies = async () => {
+  await deleteFiles("case-studies");
 
   const response = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID_PROJECTS
+    database_id: process.env.NOTION_DATABASE_ID_CASE_STUDIES,
   });
 
   for (const page of response.results) {
     const props = page.properties;
-    const project = {};
+    const caseStudy = {};
 
-    project["title"] = props.Name.title[0].plain_text;
-    project["publishDate"] = props.Publikation.date?.start;
-    project["expiryDate"] = props.Publikation.date?.end ?? undefined;
-    project["summary"] = props.Zusammenfassung.rich_text[0].plain_text;
-    project["tags"] = props.Tags.multi_select.map((tag) => tag.name);
-    project["categories"] = props.Leistungsnamen.rollup?.array.map((category) => category.title[0].plain_text);
-    project["author"] = props.Autor.people[0].name;
-    project["authorAvatar"] = props.Autor.people[0].avatar_url;
+    caseStudy["title"] = props.Name.title[0].plain_text;
+    caseStudy["publishDate"] = props.Publikation.date?.start;
+    caseStudy["expiryDate"] = props.Publikation.date?.end ?? undefined;
+    caseStudy["summary"] = props.Zusammenfassung.rich_text[0].plain_text;
+    caseStudy["tags"] = props.Tags.multi_select.map((tag) => tag.name);
+    caseStudy["categories"] = props.Kompetenznamen.rollup?.array.map((category) => category.title[0].plain_text);
+    caseStudy["author"] = props.Autor.people[0].name;
+    caseStudy["authorAvatar"] = props.Autor.people[0].avatar_url;
 
-    project["date"] = page.created_time;
-    project["lastmod"] = page.last_edited_time;
-    project["notionUrl"] = page.url;
+    caseStudy["date"] = page.created_time;
+    caseStudy["lastmod"] = page.last_edited_time;
+    caseStudy["notionUrl"] = page.url;
 
-    if (!project["publishDate"]) {
+    if (!caseStudy["publishDate"]) {
       continue;
     }
 
     if (page.cover?.type == "external") {
-      project["image"] = await download(page.cover.external.url, "images/projects");
+      caseStudy["image"] = await download(page.cover.external.url, "images/case-studies");
     } else if (page.cover?.type == "file") {
-      project["image"] = await download(page.cover.file.url, "images/projects");
+      caseStudy["image"] = await download(page.cover.file.url, "images/case-studies");
     }
 
     const mdblocks = await n2m.pageToMarkdown(page.id);
-    project["markdown"] = n2m.toMarkdownString(mdblocks).parent;
+    caseStudy["markdown"] = n2m.toMarkdownString(mdblocks).parent;
 
-    writeContent(project, `content/german/projekte/${project["title"]}.md`);
+    writeContent(caseStudy, `content/german/case-studies/${caseStudy["title"]}.md`);
   }
 };
 
@@ -204,8 +204,8 @@ const deleteFiles = async (section) => {
 };
 
 (async () => {
-  console.log("Loading Projects...");
-  await loadProjects();
+  console.log("Loading Case Studies...");
+  await loadCaseStudies();
 
   console.log("Loading Services...");
   await loadServices();
