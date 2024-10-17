@@ -100,33 +100,33 @@ const loadCaseStudies = async () => {
   }
 };
 
-const loadServices = async () => {
+const loadCompetencies = async () => {
   await deleteFiles("kompetenzen");
 
   const response = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID_SERVICES,
+    database_id: process.env.NOTION_DATABASE_ID_COMPETENCIES,
   });
 
   for (const page of response.results) {
     const props = page.properties;
-    const service = {};
+    const competency = {};
 
-    service["title"] = props.Name.title[0].plain_text;
-    service["date"] = page.created_time;
-    service["lastmod"] = page.last_edited_time;
-    service["notionUrl"] = page.url;
-    service["tags"] = props.Tags.multi_select.map((tag) => tag.name);
+    competency["title"] = props.Name.title[0].plain_text;
+    competency["date"] = page.created_time;
+    competency["lastmod"] = page.last_edited_time;
+    competency["notionUrl"] = page.url;
+    competency["tags"] = props.Tags.multi_select.map((tag) => tag.name);
 
     if (page.cover?.type == "external") {
-      service["image"] = await download(page.cover.external.url, "images/services");
+      competency["image"] = await download(page.cover.external.url, "images/competencies");
     } else if (page.cover?.type == "file") {
-      service["image"] = await download(page.cover.file.url, "images/services");
+      competency["image"] = await download(page.cover.file.url, "images/competencies");
     }
 
     const mdblocks = await n2m.pageToMarkdown(page.id);
-    service["markdown"] = n2m.toMarkdownString(mdblocks).parent;
+    competency["markdown"] = n2m.toMarkdownString(mdblocks).parent;
 
-    writeContent(service, `content/german/kompetenzen/${service["title"]}.md`);
+    writeContent(competency, `content/german/kompetenzen/${competency["title"]}.md`);
   }
 }
 
@@ -207,8 +207,8 @@ const deleteFiles = async (section) => {
   console.log("Loading Case Studies...");
   await loadCaseStudies();
 
-  console.log("Loading Services...");
-  await loadServices();
+  console.log("Loading Competencies...");
+  await loadCompetencies();
 
   console.log("Loading Testimonials...");
   await loadTestimonials();

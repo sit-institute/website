@@ -6,7 +6,7 @@ notionUrl: https://www.notion.so/Datenintegration-f6d1eb8badf34b28892db3d07cb3aa
 tags:
   - n8n
   - NiFi
-image: images/services/met_terracotta_funerary_plaque.jpg
+image: images/competencies/met_terracotta_funerary_plaque.jpg
 include_footer: true
 ---
 
