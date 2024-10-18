@@ -1,10 +1,10 @@
-<div class="bg-body ">
+<div class="bg-body flex flex-col">
   {{ $image:= .Params.image }}
   {{ if $image }}
-    {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mb-6 w-full rounded" "Command" "Fill" "Size" "400x170 center") }}
+    {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full rounded" "Command" "Fill" "Size" "400x170 center") }}
   {{ end }}
-  <div class="flex justify-between mb-2">
-    <h4 class="">
+  <div class="flex justify-between mt-4 mb-2">
+    <h4>
       <a href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
@@ -29,21 +29,21 @@
       </li>
     </ul>
   {{ end }}
-  <p class="mb-6">{{ .Summary }}</p>
-  <div class="flex justify-between">
+  <p class="mb-4">{{ .Summary }}</p>
+  <div class="flex justify-between gap-4">
     {{ $tags := .Params.tags }}
     {{ if $tags }}
-      <ul class="tags">
-        {{ range $tags }}
-        <li class="inline-block">
-          <a class="bg-theme-light hover:bg-primary m-1 text-sm rounded px-3 py-1 hover:text-white" href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
-            {{ . }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
+    <ul class="tags flex flex-wrap justify-start gap-2">
+      {{ range $tags }}
+      <li class="inline-block">
+        <a class="hover:bg-primary block rounded text-sm bg-theme-light px-3 py-2 hover:text-white" href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
+          {{ . }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
     {{ end }}
-    <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
+    <a class="btn btn-outline-primary btn-sm self-end" href="{{ .RelPermalink }}">
       {{ T "read_more" }}
     </a>
   </div>
