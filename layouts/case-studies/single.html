@@ -43,6 +43,10 @@
             </div>
           </div>
 
+          <div class="mb-4">
+            {{ partial "gallery" (dict "Dir" (printf "images/case-studies/%s/" .Params.notionId) "Height" "400") }}
+          </div>
+
           <div class="row items-start justify-between">
             {{ $tags:= .Params.tags }}
             {{ if $tags }}

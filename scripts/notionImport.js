@@ -82,6 +82,7 @@ const loadCaseStudies = async () => {
     caseStudy["date"] = page.created_time;
     caseStudy["lastmod"] = page.last_edited_time;
     caseStudy["notionUrl"] = page.url;
+    caseStudy["notionId"] = page.id;
 
     if (!caseStudy["publishDate"]) {
       continue;
@@ -91,6 +92,16 @@ const loadCaseStudies = async () => {
       caseStudy["image"] = await download(page.cover.external.url, "images/case-studies");
     } else if (page.cover?.type == "file") {
       caseStudy["image"] = await download(page.cover.file.url, "images/case-studies");
+    }
+
+    caseStudy["gallery"] = [];
+    for (const image of page.properties.Bilder.files) {
+      if (image.type == "external") {
+        // error prone
+      } else if (image.type == "file") {
+        caseStudy["gallery"].push(await download(image.file.url,
+          `images/case-studies/${caseStudy["notionId"]}`));
+      }
     }
 
     const mdblocks = await n2m.pageToMarkdown(page.id);

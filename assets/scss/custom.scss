@@ -31,3 +31,16 @@
 .btn {
     @apply normal-case;
 }
+
+.gallery {
+    @apply justify-center;
+
+    .gallery-item {
+        @apply rounded-lg;
+    }
+
+    img {
+        height: 200px;
+        object-fit: cover;
+    }
+}
