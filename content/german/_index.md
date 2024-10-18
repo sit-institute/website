@@ -50,4 +50,9 @@ features:
       enable: false
       label: ""
       link: ""
+
+testimonials:
+  title: Partner & Kunden
+  content: Glauben Sie nicht, was im Internet steht. Echte Menschen haben
+    folgendes zu berichten.
 ---

@@ -49,7 +49,7 @@ const writeContent = (content, path) => {
   });
 
   writeFile(path,
-    `---\n${frontmatter}---\n\n${content.markdown}`,
+    `---\n${frontmatter}---\n\n${content.markdown ?? ""}`,
     (err) => {
       if (err) {
         throw err;
@@ -142,8 +142,8 @@ const loadCompetencies = async () => {
 }
 
 const loadTestimonials = async () => {
-  const { results } = await notion.blocks.children.list({
-    block_id: process.env.NOTION_BLOCK_ID_TESTIMONIALS,
+  const { results } = await notion.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID_TESTIMONIALS,
   });
 
   const md = {
@@ -153,36 +153,22 @@ const loadTestimonials = async () => {
     }
   };
 
-  for (const block of results) {
-    if (block.type.startsWith("heading")) {
-      md["title"] = block[block.type].rich_text[0].plain_text;
-    } else if (block.type.startsWith("paragraph")) {
-      md["description"] = block[block.type].rich_text[0].plain_text;
-    } else if (block.type === "child_database") {
-      const response = await notion.databases.query({
-        database_id: process.env.NOTION_DATABASE_ID_TESTIMONIALS,
-      });
+  md["testimonials"] = [];
 
-      md["testimonials"] = [];
+  for (const testimonial of results) {
+    const contact = await notion.pages.retrieve({
+      page_id: testimonial.properties.Kontakt.relation[0].id });
+    
+    md["testimonials"].push({
+      name: contact.properties.Name.title[0].plain_text,
+      designation: testimonial.properties.Position.title[0].plain_text,
+      avatar: await download(contact.icon.file.url, "images/testimonials"),
+      content: await n2m.pageToMarkdown(testimonial.id)
+        .then((blocks) => n2m.toMarkdownString(blocks).parent.trim())
+    });
+  };
 
-      for (const testimonial of response.results) {
-        const contact = await notion.pages.retrieve({
-          page_id: testimonial.properties.Kontakt.relation[0].id });
-        
-        md["testimonials"].push({
-          name: contact.properties.Name.title[0].plain_text,
-          designation: testimonial.properties.Position.title[0].plain_text,
-          avatar: await download(contact.icon.file.url, "images/testimonials"),
-          content: await n2m.pageToMarkdown(testimonial.id)
-            .then((blocks) => n2m.toMarkdownString(blocks).parent.trim())
-        });
-      };
-
-      md["testimonials"].reverse();
-    } else {
-      throw new Error(`Unknown block type: ${block.type}`);
-    }
-  }
+  md["testimonials"].reverse();
 
   writeContent(md, `content/german/sections/testimonial.md`);
 }
@@ -215,7 +201,7 @@ const deleteFiles = async (section) => {
 };
 
 (async () => {
-  console.log("Loading Case Studies...");
+  console.log("Loading Case-Studies...");
   await loadCaseStudies();
 
   console.log("Loading Competencies...");

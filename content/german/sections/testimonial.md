@@ -2,9 +2,6 @@
 enable: true
 _build:
   render: never
-title: zufriedene Kunden
-description: Glauben Sie nicht, was im Internet steht. Echte Menschen haben
-  folgendes zu berichten.
 testimonials:
   - name: Dr. Jan Eckardt
     designation: Clinician Scientist
@@ -33,4 +30,3 @@ testimonials:
 include_footer: true
 ---
 
-undefined

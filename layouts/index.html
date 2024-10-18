@@ -79,6 +79,8 @@
   <!-- /Features -->
 
   <!-- Testimonials -->
+  {{ $testimonialsTitle := .Params.testimonials.title }}
+  {{ $testimonialsContent := .Params.testimonials.content }}
   {{ with site.GetPage "sections/testimonial" }}
     {{ if .Params.enable }}
       <section class="section-sm">
@@ -86,10 +88,10 @@
           <div class="row">
             <div class="md:col-10 lg:col-8 xl:col-6 mx-auto mb-12 text-center">
               <h2 class="mb-4">
-                {{ .Title | markdownify }}
+                {{ $testimonialsTitle | markdownify }}
               </h2>
               <p>
-                {{ .Params.description | markdownify }}
+                {{ $testimonialsContent | markdownify }}
               </p>
             </div>
             <div class="col-12">
