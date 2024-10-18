@@ -25,9 +25,11 @@ testimonials:
   - name: Frank Matthes
     designation: Geschäftsführer
     avatar: images/testimonials/rect1.png
-    content: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-      diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    content: Mit der sit.institute GmbH haben wir einen erstklassigen IT-Partner
+      gefunden. Sie bieten smarte Lösungen, die unsere Arbeitsabläufe spürbar
+      verbessert haben. Das Team ist super kompetent und flexibel, immer auf der
+      Suche nach den besten technischen Anpassungen für uns. Eine
+      Zusammenarbeit, die wir nicht mehr missen möchten!
 include_footer: true
 ---
 
