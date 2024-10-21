@@ -36,7 +36,7 @@
     @apply justify-center;
 
     .gallery-item {
-        @apply rounded-lg;
+        @apply rounded-md shadow-md;
     }
 
     img {

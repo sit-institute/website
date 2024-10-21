@@ -74,6 +74,7 @@ const loadCaseStudies = async () => {
     caseStudy["publishDate"] = props.Publikation.date?.start;
     caseStudy["expiryDate"] = props.Publikation.date?.end ?? undefined;
     caseStudy["summary"] = props.Zusammenfassung.rich_text[0].plain_text;
+    caseStudy["website"] = props.Webseite.url;
     caseStudy["tags"] = props.Tags.multi_select.map((tag) => tag.name);
     caseStudy["categories"] = props.Kompetenznamen.rollup?.array.map((category) => category.title[0].plain_text);
     caseStudy["author"] = props.Autor.people[0].name;

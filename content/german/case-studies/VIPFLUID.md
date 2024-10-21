@@ -4,6 +4,7 @@ publishDate: 2024-09-30
 summary: Software und Infrastruktur zur vorausschauenden Instandhaltung für
   Pumpensysteme auf Basis von Federated Learning und Synthese von multiplen
   Sensordaten.
+website: https://vipfluid.de
 tags:
   - n8n
   - Grafana
