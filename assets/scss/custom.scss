@@ -44,3 +44,15 @@
         object-fit: cover;
     }
 }
+
+#cookie-box {
+    @apply text-sm text-gray-700;
+
+    a {
+        @apply text-primary;
+
+        &:hover {
+            @apply text-opacity-50;
+        }
+    }
+}
