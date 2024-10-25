@@ -14,7 +14,7 @@ categories:
   - Datenintegration
   - IT-Beratung
 author: Karsten
-authorAvatar: https://s3-us-west-2.amazonaws.com/public.notion-static.com/ba9aa321-8e1e-4995-bbfd-7e2e8c92efcf/Wendt_Karsten_Dr_Ing__MKR05306.jpg
+authorAvatar: images/authors/Wendt_Karsten_Dr_Ing__MKR05306.jpg
 date: 2024-09-30T09:16:00.000Z
 lastmod: 2024-10-21T11:41:00.000Z
 notionUrl: https://www.notion.so/VIPFLUID-111be61fc1ef80a2ac51d8cb2441cb00

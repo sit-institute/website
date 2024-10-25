@@ -78,7 +78,8 @@ const loadCaseStudies = async () => {
     caseStudy["tags"] = props.Tags.multi_select.map((tag) => tag.name);
     caseStudy["categories"] = props.Kompetenznamen.rollup?.array.map((category) => category.title[0].plain_text);
     caseStudy["author"] = props.Autor.people[0].name;
-    caseStudy["authorAvatar"] = props.Autor.people[0].avatar_url;
+
+    caseStudy["authorAvatar"] = await download(props.Autor.people[0].avatar_url, "images/authors");
 
     caseStudy["date"] = page.created_time;
     caseStudy["lastmod"] = page.last_edited_time;

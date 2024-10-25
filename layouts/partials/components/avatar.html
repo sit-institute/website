@@ -1,5 +1,5 @@
 {{ $size := (cond (eq .Size "small") "24x24" (cond (eq .Size "medium") "32x32" (cond (eq .Size "large") "64x64" "32x32"))) }}
-{{ $avatar := (resources.GetRemote .Url).Fill (printf "%s center webp q85" $size) }}
+{{ $avatar := (resources.Get .Src).Fill (printf "%s center webp q85" $size) }}
 <img src="{{ $avatar.Permalink }}"
     alt="{{ .Params.author }}"
     class="rounded-full inline-block {{ .Class }}" />

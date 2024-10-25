@@ -10,7 +10,7 @@
       </a>
     </h4>
     {{ with .Params.author }}<a title="{{ . }}">{{ end }}
-      {{ partial "components/avatar" (dict "Url" .Params.authorAvatar "Class" "mr-1") }}
+      {{ partial "components/avatar" (dict "Src" .Params.authorAvatar "Class" "mr-1") }}
     </a>
   </div>
   {{ $categories:= .Params.categories }}
