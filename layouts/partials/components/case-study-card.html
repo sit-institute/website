@@ -10,7 +10,11 @@
       </a>
     </h4>
     {{ with .Params.author }}<a title="{{ . }}">{{ end }}
+      {{ if .Params.authorAvatar }}
       {{ partial "components/avatar" (dict "Src" .Params.authorAvatar "Class" "mr-1") }}
+      {{ else }}
+      {{ partial "components/avatar" (dict "Src" "images/avatar-sm.png" "Class" "mr-1") }}
+      {{ end }}
     </a>
   </div>
   {{ $categories:= .Params.categories }}
@@ -30,7 +34,7 @@
     </ul>
   {{ end }}
   <p class="mb-4">{{ .Summary }}</p>
-  <div class="flex justify-between gap-4">
+  <div class="flex justify-between gap-4 items-start">
     {{ $tags := .Params.tags }}
     {{ if $tags }}
     <ul class="tags flex flex-wrap justify-start gap-2">
@@ -43,7 +47,7 @@
       {{ end }}
     </ul>
     {{ end }}
-    <a class="btn btn-outline-primary btn-sm self-end" href="{{ .RelPermalink }}">
+    <a class="btn btn-outline-primary btn-sm self-start whitespace-nowrap" href="{{ .RelPermalink }}">
       {{ T "read_more" }}
     </a>
   </div>

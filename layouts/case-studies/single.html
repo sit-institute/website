@@ -57,6 +57,7 @@
                   </dd>
                 </div>
             
+                {{ if .Params.website }}
                 <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
                   <dt class="font-light text-center sm:text-left">Webseite</dt>
                   <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
@@ -64,11 +65,17 @@
                     <a href="{{ .Params.website }}" target="_blank" rel="noopener noreferrer">{{ replace .Params.website "https://" "" }}</a>
                   </dd>
                 </div>
+                {{ end }}
             
                 <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
                   <dt class="font-light text-center sm:text-left">Ansprechpartner</dt>
                   <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
-                    {{ partial "components/avatar" (dict "Src" .Params.authorAvatar "Class" "mr-1" "Size" "small") }} {{ .Params.author }}
+                    {{ if .Params.authorAvatar }}
+                    {{ partial "components/avatar" (dict "Src" .Params.authorAvatar "Class" "mr-1" "Size" "small") }}
+                    {{ else }}
+                    {{ partial "components/avatar" (dict "Src" "images/avatar-sm.png" "Class" "mr-1" "Size" "small") }}
+                    {{ end }}
+                    {{ .Params.author }}
                   </dd>
                 </div>
             
