@@ -13,9 +13,11 @@
         {{ $projects := (where site.RegularPages "Section" "eq" "case-studies") }}
         {{ $categories := slice .Title }}
         {{ $related := where $projects "Params.categories" "intersect" $categories }}
-        {{ with ($related | shuffle | first 3) }}
+        {{ with ($related | shuffle | first 2) }}
         {{ range . }}
+        <div class="mb-14">
             {{ partial "components/case-study-card" . }}
+        </div>
         {{ end }}
         {{ end }}
       </div>
