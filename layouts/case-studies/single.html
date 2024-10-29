@@ -1,145 +1,146 @@
 {{ define "main" }}
 {{ partial "page-header" . }}
 
-  <section class="section-sm pb-6 pt-7">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-10">
-          <div class="content mb-10">
-            {{ $image:= .Params.image }}
-            {{ if $image }}
-            <div class="md:float-left not-prose md:mr-8 mb-4 xl:mb-auto">
-              {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "cover" "Size" "410x") }}
-            </div>
-            {{ end }}
-            <div>
-              {{ .Content }}
-            </div>
+<section class="section-sm pb-6 pt-7">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        <div class="content mb-10">
+          {{ $image:= .Params.image }}
+          {{ if $image }}
+          <div class="md:float-left not-prose md:mr-8 mb-4 xl:mb-auto">
+            {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "cover" "Size" "410x") }}
           </div>
-
-        </article>
-      </div>
-    </div>
-  </section>
-  <section class="section-sm border-t-2">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-12">
-          <div class="md:grid grid-cols-6 gap-8 mb-10">
-            <div class="flow-root mb-20 sm:mb-10 col-span-4 md:col-span-4 lg:col-span-3 2xl:col-span-2">
-              <dl class="-my-3">
-            
-                {{/*  <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                  <dt class="font-semibold text-center sm:text-left">Kunde</dt>
-                  <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
-                    TODO
-                  </dd>
-                </div>  */}}
-
-                <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                  <dt class="font-light text-center sm:text-left">Kompetenzen</dt>
-                  <dd class="text-gray-700 sm:col-span-2 not-prose text-center sm:text-left">
-                    {{ $categories:= .Params.categories }}
-                    {{ if $categories }}
-                    <i class="fa-regular fa-folder text-xl mr-1"></i>
-                    {{ range $i,$p:= $categories }}
-                      <a
-                        href="{{ `kompetenzen/` | relLangURL }}{{ . | urlize | lower }}/"
-                        class=""
-                        >{{ . }}{{ if ne $i (sub (len $categories) 1) }}{{ "," }}
-                        {{ end }}
-                      </a>
-                    {{ end }}
-                    {{ end }}
-                  </dd>
-                </div>
-            
-                {{ if .Params.website }}
-                <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                  <dt class="font-light text-center sm:text-left">Webseite</dt>
-                  <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
-                    <i class="fa-regular fa-link text-xl mr-1"></i>
-                    <a href="{{ .Params.website }}" target="_blank" rel="noopener noreferrer">{{ replace .Params.website "https://" "" }}</a>
-                  </dd>
-                </div>
-                {{ end }}
-            
-                <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                  <dt class="font-light text-center sm:text-left">Ansprechpartner</dt>
-                  <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
-                    {{ if .Params.authorAvatar }}
-                    {{ partial "components/avatar" (dict "Src" .Params.authorAvatar "Class" "mr-1" "Size" "small") }}
-                    {{ else }}
-                    {{ partial "components/avatar" (dict "Src" "images/avatar-sm.png" "Class" "mr-1" "Size" "small") }}
-                    {{ end }}
-                    {{ .Params.author }}
-                  </dd>
-                </div>
-            
-                <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                  <dt class="font-light text-center sm:text-left">letztes Update</dt>
-                  <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
-                    <i class="fa-regular fa-clock text-xl mr-1"></i>
-                    {{ time.Format ":date_long" .Params.lastmod }}
-                  </dd>
-                </div>               
-                
-                <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-                  <dt class="font-light text-center sm:text-left">Tags</dt>
-                  <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
-                    {{ $tags:= .Params.tags }}
-                    {{ if $tags }}
-                    <ul class="flex flex-wrap gap-x-2 gap-y-4 justify-center sm:justify-start">
-                      <li>
-                        <i class="fa-regular fa-tag text-xl mr-1"></i>
-                      </li>
-                      {{ range $i,$p:= $tags }}
-                      <li>
-                        <a
-                          class="bg-theme-light hover:bg-primary rounded px-3 py-1 hover:text-white not-prose"
-                          href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
-                          {{ . }}
-                        </a>
-                      </li>
-                      {{ end }}
-                    </ul>
-                    {{ end }}
-                  </dd>
-                </div>
-              </dl>
-            </div>
-            <div class="col-span-4 md:col-span-2 lg:col-span-3 2xl:col-span-4">
-              {{ partial "gallery" (dict "Dir" (printf "images/case-studies/%s/" .Params.notionId) "Height" "400") }}
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            {{ partial "social-share" (dict "Context" . "Class" "share-icons" "Title" (T "share") "Whatsapp" false "Telegram" false "Linkedin" false "Pinterest" false "Tumblr" false "Vk" false) }}
-          </div>
-          <!-- comments -->
-          {{/*  {{ if site.Config.Services.Disqus.Shortname }}
-            <div class="mt-20">
-              {{ template "_internal/disqus.html" . }}
-            </div>
-          {{ end }}  */}}
-        </article>
-      </div>
-
-      <!-- Related posts -->
-      {{ $related := (where site.RegularPages "Section" "==" "case-studies") | intersect (where site.RegularPages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) }}
-      {{ $related = $related | shuffle | first 3 }}
-      {{ with $related }}
-        <div class="section pb-0">
-          <h2 class="h3 mb-12">{{ T "related_case_studies" }}</h2>
-          <div class="row">
-            {{ range . }}
-              <div class="lg:col-4 md:col-6 mb-14">
-                {{ partial "components/case-study-card" . }}
-              </div>
-            {{ end }}
+          {{ end }}
+          <div>
+            {{ .Content }}
           </div>
         </div>
-      {{ end }}
+
+      </article>
+      </div>
+      </div>
+      </section>
+
+<section class="section-sm border-t-2">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="lg:col-12">
+        <div class="md:grid grid-cols-6 gap-8 mb-10">
+          <div class="flow-root mb-20 sm:mb-10 col-span-4 md:col-span-4 lg:col-span-3 2xl:col-span-2">
+            <dl class="">
+
+              <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-light text-center sm:text-left">Kompetenzen</dt>
+                <dd class="text-gray-700 sm:col-span-2 not-prose text-center sm:text-left">
+                  {{ $categories:= .Params.categories }}
+                  {{ if $categories }}
+                  <i class="fa-regular fa-folder text-xl mr-1"></i>
+                  {{ range $i,$p:= $categories }}
+                  <a href="{{ `kompetenzen/` | relLangURL }}{{ . | urlize | lower }}/" class="">{{ . }}{{ if ne $i (sub
+                    (len $categories) 1) }}{{ "," }}
+                    {{ end }}
+                  </a>
+                  {{ end }}
+                  {{ end }}
+                  </dd>
+                  </div>
+                  
+                  {{ if .Params.website }}
+                  <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-light text-center sm:text-left">Webseite</dt>
+                    <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
+                      <i class="fa-regular fa-link text-xl mr-1"></i>
+                  <a href="{{ .Params.website }}" target="_blank" rel="noopener noreferrer">{{ replace .Params.website
+                    "https://" "" }}</a>
+                  </dd>
+                  </div>
+                  {{ end }}
+                  
+                  <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-light text-center sm:text-left">Ansprechpartner</dt>
+                    <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
+                      {{ if .Params.authorAvatar }}
+                      {{ partial "components/avatar" (dict "Src" .Params.authorAvatar "Class" "mr-1" "Size" "small") }}
+                      {{ else }}
+                      {{ partial "components/avatar" (dict "Src" "images/avatar-sm.png" "Class" "mr-1" "Size" "small") }}
+                      {{ end }}
+                      {{ .Params.author }}
+                    </dd>
+                  </div>
+                  
+                  <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-light text-center sm:text-left">letztes Update</dt>
+                    <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
+                      <i class="fa-regular fa-clock text-xl mr-1"></i>
+                      {{ time.Format ":date_long" .Params.lastmod }}
+                    </dd>
+                  </div>
+                  
+                  <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-light text-center sm:text-left">Tags</dt>
+                    <dd class="text-gray-700 sm:col-span-2 text-center sm:text-left">
+                      {{ $tags:= .Params.tags }}
+                      {{ if $tags }}
+                      <ul class="flex flex-wrap gap-x-2 gap-y-4 justify-center sm:justify-start">
+                        <li>
+                          <i class="fa-regular fa-tag text-xl mr-1"></i>
+                        </li>
+                        {{ range $i,$p:= $tags }}
+                        <li>
+                      <a class="bg-theme-light hover:bg-primary rounded px-3 py-1 hover:text-white not-prose"
+                        href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
+                        {{ . }}
+                      </a>
+                      </li>
+                      {{ end }}
+                      </ul>
+                      {{ end }}
+                      </dd>
+                      </div>
+                      </dl>
+                      </div>
+                      <div class="col-span-4 md:col-span-2 lg:col-span-3 2xl:col-span-4">
+                        {{ partial "gallery" (dict "Dir" (printf "images/case-studies/%s/" .Params.notionId) "Height" "400") }}
+                      </div>
+                      </div>
+
+        <div class="flex justify-center">
+          {{ partial "social-share" (dict "Context" . "Class" "share-icons" "Title" (T "share") "Whatsapp" false
+          "Telegram" false "Linkedin" false "Pinterest" false "Tumblr" false "Vk" false) }}
+          </div>
+          <!-- comments -->
+        {{/* {{ if site.Config.Services.Disqus.Shortname }}
+        <div class="mt-20">
+          {{ template "_internal/disqus.html" . }}
+        </div>
+        {{ end }} */}}
+      </div>
     </div>
+    </div>
+    </section>
+
+<section class="section-sm border-t-2">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="lg:col-12">
+        <!-- Related posts -->
+        {{ $related := (where site.RegularPages "Section" "==" "case-studies") | intersect (where site.RegularPages
+        ".Title"
+        "!=" .Title) | union (site.RegularPages.Related . ) }}
+        {{ $related = $related | shuffle | first 3 }}
+        {{ with $related }}
+        <h2 class="h3 mb-12">{{ T "related_case_studies" }}</h2>
+        <div class="row">
+          {{ range . }}
+          <div class="lg:col-4 md:col-6 mb-14">
+            {{ partial "components/case-study-card" . }}
+          </div>
+          {{ end }}
+          </div>
+        {{ end }}
+      </div>
+      </div>
+  </div>
   </section>
 {{ end }}

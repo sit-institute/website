@@ -37,6 +37,7 @@
 
     .gallery-item {
         @apply rounded-md shadow-md;
+        margin: calc(var(--bs-gutter-x) / 2);
     }
 
     img {

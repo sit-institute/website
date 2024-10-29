@@ -4,11 +4,11 @@
     {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full rounded" "Command" "Fill" "Size" "400x170 center") }}
   {{ end }}
   <div class="flex justify-between mt-4 mb-2">
-    <h4>
+    <h3 class="text-2xl">
       <a href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
-    </h4>
+    </h3>
     {{ with .Params.author }}<a title="{{ . }}">{{ end }}
       {{ if .Params.authorAvatar }}
       {{ partial "components/avatar" (dict "Src" .Params.authorAvatar "Class" "mr-1") }}

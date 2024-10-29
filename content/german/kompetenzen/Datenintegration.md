@@ -1,7 +1,7 @@
 ---
 title: Datenintegration
 date: 2024-10-02T11:22:00.000Z
-lastmod: 2024-10-02T11:53:00.000Z
+lastmod: 2024-10-29T15:17:00.000Z
 notionUrl: https://www.notion.so/Datenintegration-f6d1eb8badf34b28892db3d07cb3aa74
 tags:
   - n8n
@@ -17,7 +17,7 @@ In der heutigen digitalen Welt ist Datenintegration der Schlüssel zum Erfolg. W
 Mit unserer umfassenden Expertise im Bereich Datenintegration unterstützen wir Sie dabei, Daten effizient zu analysieren und zu nutzen. So können Sie bessere Entscheidungen treffen, Geschäftsprozesse optimieren und die Kundenzufriedenheit steigern. Unsere Lösungen sind skalierbar und anpassbar, sodass sie für Unternehmen jeder Größe geeignet sind.
 
 
-## **Vorteile unserer Datenintegrationslösungen**
+## Vorteile unserer Datenintegrationslösungen
 
 - **Nahtlose Verbindung verschiedener Datenquellen:** Ob Cloud, On-Premises oder hybride Umgebungen – wir integrieren Ihre Daten reibungslos.
 - **Automatisierte Datenprozesse:** Reduzieren Sie manuelle Eingriffe und minimieren Sie Fehler durch automatisierte Workflows.
