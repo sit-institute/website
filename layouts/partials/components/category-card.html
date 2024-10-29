@@ -1,0 +1,19 @@
+<div class="bg-body flex flex-col">
+  {{ $image := .Params.image }}
+  {{ if $image }}
+  <div class="w-full mb-4">
+    {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full h-full object-cover rounded-lg"
+    "Command" "Fill" "Size" "400x170 center") }}
+  </div>
+  {{ end }}
+
+  <div class="mt-4 mb-2">
+    <h4>
+      <a href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    </h4>
+  </div>
+
+  <p class="text-gray-600">{{ .Summary }}</p>
+</div>

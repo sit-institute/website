@@ -1,0 +1,67 @@
+{{ define "main" }}
+{{ partial "page-header" . }}
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row justify-center gap-x-4">
+      <div class="col-12 lg:col-10">
+        <div class="hidden md:block float-left mr-10 mb-6 xl:mb-0">
+          {{ $image := resources.Get "images/karsten-aiefm-2024.jpg" }}
+          {{ partial "image" (dict "Src" $image "Class" "object-cover rounded-md shadow-md" "Size" "400x270 left"
+          "Command"
+          "Fill") }}
+        </div>
+        <div class="content">
+          <p class="md:text-lg font-medium">
+            Mit umfassender Erfahrung in der digitalen Transformation und innovativen Technologien entstehen
+            maßgeschneiderte Lösungen, die Ihr Unternehmen&nbsp;&ndash;&nbsp;vom Start-up bis zur etablierten
+            Organisation&nbsp;&ndash;&nbsp;bei Zukunfts- und Wettbewerbsfähigkeit unterstützen.
+          </p>
+          <div class=" md:hidden my-6">
+            {{ $image := resources.Get "images/karsten-aiefm-2024.jpg" }}
+            {{ partial "image" (dict "Src" $image "Class" "object-cover rounded-md shadow-md" "Size" "400x150 left"
+            "Command"
+            "Fill") }}
+          </div>
+          <p class="text-base">
+            Durch gezielte IT-Beratung werden Strategien entwickelt, die optimal auf Ihre Ziele abgestimmt
+            sind. Die prototypische Softwareentwicklung prüft frühzeitig die Machbarkeit neuer Ansätze und generiert
+            wertvolles Wissen, das in die Optimierung Ihrer digitalen Lösungen einfließt. Eine reibungslose
+            Datenintegration sorgt für nahtlosen Zugriff auf entscheidungsrelevante Informationen jederzeit und
+            überall.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section-sm pb-0 border-t-2">
+  <div class="container">
+    <div class="row gx-5">
+      <div class="lg:col-12">
+        <div class="row">
+          {{ $paginator:= .Paginate .RegularPages }}
+          {{ range $paginator.Pages }}
+          <div class="md:col-4 mb-14">
+            {{ partial "components/category-card" . }}
+          </div>
+          {{ end }}
+        </div>
+        {{ partial "components/pagination.html" . }}
+      </div>
+    </div>
+</section>
+
+<section class="section-sm border-t-2">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="lg:col-4">
+        <p class="text-xl text-center font-light">
+          So wird Ihre digitale Transformation entscheidend vorangetrieben - für nachhaltigen Erfolg und messbaren
+          Mehrwert.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
