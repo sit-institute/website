@@ -127,7 +127,7 @@
         <!-- Related posts -->
         {{ $related := (where site.RegularPages "Section" "==" "case-studies") | intersect (where site.RegularPages
         ".Title"
-        "!=" .Title) | union (site.RegularPages.Related . ) }}
+        "!=" .Title) }}
         {{ $related = $related | shuffle | first 3 }}
         {{ with $related }}
         <h2 class="h3 mb-12">{{ T "related_case_studies" }}</h2>

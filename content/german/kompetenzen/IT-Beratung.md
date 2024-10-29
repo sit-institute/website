@@ -1,12 +1,18 @@
 ---
 title: IT-Beratung
 date: 2024-10-02T11:22:00.000Z
-lastmod: 2024-10-02T11:53:00.000Z
+lastmod: 2024-10-29T16:22:00.000Z
 notionUrl: https://www.notion.so/IT-Beratung-4f3fac59b4b2429c9c17fd2783759283
 tags:
   - Startup
   - Digitalisierung
-image: images/competencies/rijksmuseum_vermeer_the_milkmaid.jpg
+summary: Eine solide IT und funktionierende Software ist heute unverzichtbar.
+  Unsere Experten bieten Unternehmen jeder Größe gezielte IT-Beratung, um
+  technische Herausforderungen zu meistern und Geschäftsprozesse zu verbessern.
+  Von der Planung und Implementierung bis zur langfristigen Betreuung stehen wir
+  Ihnen mit Fachwissen und innovativen Lösungen zur Seite, um zukunftssichere
+  Strukturen zu gewährleisten.
+image: images/competencies/undraw_Status_update_re_dm9y.png
 include_footer: true
 ---
 

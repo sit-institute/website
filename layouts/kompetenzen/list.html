@@ -12,14 +12,14 @@
           "Fill") }}
         </div>
         <div class="content">
-          <p class="md:text-lg font-medium">
+          <p class="text-2xl md:text-lg font-medium mt-0">
             Mit umfassender Erfahrung in der digitalen Transformation und innovativen Technologien entstehen
-            maßgeschneiderte Lösungen, die Ihr Unternehmen&nbsp;&ndash;&nbsp;vom Start-up bis zur etablierten
-            Organisation&nbsp;&ndash;&nbsp;bei Zukunfts- und Wettbewerbsfähigkeit unterstützen.
+            maßgeschneiderte Lösungen, die Ihr Unternehmen &ndash; vom Start-up bis zur etablierten
+            Organisation &ndash; bei Zukunfts- und Wettbewerbsfähigkeit unterstützen.
           </p>
-          <div class=" md:hidden my-6">
+          <div class="md:hidden mt-6 mb-12">
             {{ $image := resources.Get "images/karsten-aiefm-2024.jpg" }}
-            {{ partial "image" (dict "Src" $image "Class" "object-cover rounded-md shadow-md" "Size" "400x150 left"
+            {{ partial "image" (dict "Src" $image "Class" "object-cover shadow-md" "Size" "400x150 left"
             "Command"
             "Fill") }}
           </div>
@@ -35,11 +35,11 @@
     </div>
 </section>
 
-<section class="section-sm pb-0 border-t-2">
+<section class="section-sm">
   <div class="container">
     <div class="row gx-5">
       <div class="lg:col-12">
-        <div class="row">
+        <div class="row gx-5">
           {{ $paginator:= .Paginate .RegularPages }}
           {{ range $paginator.Pages }}
           <div class="md:col-4 mb-14">
@@ -56,7 +56,7 @@
   <div class="container">
     <div class="row justify-center">
       <div class="lg:col-4">
-        <p class="text-xl text-center font-light">
+        <p class="text-2xl md:text-xl text-center font-light">
           So wird Ihre digitale Transformation entscheidend vorangetrieben - für nachhaltigen Erfolg und messbaren
           Mehrwert.
         </p>

@@ -16,6 +16,9 @@
     @apply text-xl;
 }
 
+.content li {
+    @apply text-base;
+}
 .share-link {
     @apply my-0 mx-1;
 }

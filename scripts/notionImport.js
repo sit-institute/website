@@ -129,6 +129,7 @@ const loadCompetencies = async () => {
     competency["lastmod"] = page.last_edited_time;
     competency["notionUrl"] = page.url;
     competency["tags"] = props.Tags.multi_select.map((tag) => tag.name);
+    competency["summary"] = props.Zusammenfassung.rich_text[0].plain_text;
 
     if (page.cover?.type == "external") {
       competency["image"] = await download(page.cover.external.url, "images/competencies");

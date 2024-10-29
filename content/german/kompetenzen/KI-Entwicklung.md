@@ -1,10 +1,16 @@
 ---
 title: KI-Entwicklung
 date: 2024-10-02T11:22:00.000Z
-lastmod: 2024-10-29T15:18:00.000Z
+lastmod: 2024-10-29T16:22:00.000Z
 notionUrl: https://www.notion.so/KI-Entwicklung-c995591e66e04719b1045cdd349f1338
 tags: []
-image: images/competencies/met_winslow_homer_maine_coast.jpg
+summary: Nutzen Sie die Möglichkeiten der künstlichen Intelligenz (KI), um Ihre
+  Geschäftsprozesse effizienter zu gestalten. Unsere Lösungen zur KI-Entwicklung
+  sind individuell auf Ihre Anforderungen abgestimmt, sei es für Datenanalysen,
+  Kundenservice-Automatisierung oder zur Beschleunigung von
+  Entscheidungsprozessen. So helfen wir Ihnen, effizienter zu arbeiten und
+  Wettbewerbsvorteile zu sichern.
+image: images/competencies/undraw_Mind_map_re_nlb6.png
 include_footer: true
 ---
 

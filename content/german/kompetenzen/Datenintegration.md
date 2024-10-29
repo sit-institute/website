@@ -1,12 +1,18 @@
 ---
 title: Datenintegration
 date: 2024-10-02T11:22:00.000Z
-lastmod: 2024-10-29T15:17:00.000Z
+lastmod: 2024-10-29T16:22:00.000Z
 notionUrl: https://www.notion.so/Datenintegration-f6d1eb8badf34b28892db3d07cb3aa74
 tags:
   - n8n
   - NiFi
-image: images/competencies/met_terracotta_funerary_plaque.jpg
+summary: In der digitalen Welt ist die nahtlose Integration von Daten aus
+  verschiedenen Quellen entscheidend. Wir bieten maßgeschneiderte Lösungen, um
+  Ihre Daten effektiv zu verbinden und zu verwalten. Unser Service ermöglicht
+  es, unterschiedliche Systeme und Datenbanken in einer zentralen Datengrundlage
+  zusammenzuführen, um eine einheitliche und verlässliche Basis für
+  Entscheidungen zu schaffen.
+image: images/competencies/undraw_Data_points_re_vkpq.png
 include_footer: true
 ---
 
