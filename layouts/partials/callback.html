@@ -1,0 +1,74 @@
+{{ with site.GetPage "sections/callback" }}
+{{ $callbackUrl := .Params.test }}
+{{ if eq hugo.Environment "production" }}
+{{ $callbackUrl := .Params.live }}
+{{ end }}
+{{ with $callbackUrl }}
+<section class="section-sm bg-gradient" id="rückruf">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mx-auto mb-12 text-center">
+                <h2 class="mb-4">
+                    Rückruf anfordern
+                </h2>
+                <div class="col-12" id="callbackFormWrapper">
+                    <p class="mb-16">
+                        Hinterlassen Sie uns Ihren Namen und Ihre Telefonnummer. Wir rufen Sie zurück.
+                    </p>
+                    <form action="{{ . }}" id="callbackForm" method="POST" class="flex flex-wrap justify-center gap-6">
+                        <div>
+                            <label for="name" class="form-label">
+                                Ihr Name <span class="text-red-500">*</span>
+                            </label>
+                            <input id="name" name="name" class="form-input" placeholder="John Doe" type="text"
+                                required />
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">
+                                Ihre Telefonnummer <span class="text-red-500">*</span>
+                            </label>
+                            <input id="phone" name="phone" class="form-input" placeholder="+49 351 123456" type="tel"
+                                required />
+                        </div>
+                        <div class="content-end">
+                            <button type="submit" class="btn btn-primary">anfordern</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="successMessage" class="hidden p-4" role="alert">
+                    <p class="text-xl pb-2">Vielen Dank für Ihre Anfrage.</p>
+                    <p class="text-xl">Wir melden uns schnellstmöglich telefonisch bei Ihnen.</p>
+                </div>
+            </div>
+        </div>
+</section>
+<script>
+    document.getElementById('callbackForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Verhindert das Standard-Formular-Absenden
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').classList.remove('hidden');
+                    document.getElementById('callbackFormWrapper').classList.add('hidden');
+                    form.reset(); // Formular zurücksetzen
+                } else {
+                    // Fehlerbehandlung hier hinzufügen
+                    alert('Es gab ein Problem beim Absenden. Bitte versuchen Sie es später erneut.');
+                }
+            })
+            .catch(error => {
+                // Fehlerbehandlung hier hinzufügen
+                alert('Es gab ein Problem beim Absenden. Bitte versuchen Sie es später erneut.');
+                console.error('Error:', error);
+            });
+    });
+</script>
+{{ end }}
+{{ end }}

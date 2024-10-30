@@ -60,3 +60,11 @@
         }
     }
 }
+
+.form-input {
+    @apply bg-theme-light text-dark placeholder:text-light focus:border-primary w-full rounded border-transparent px-4 py-2.5 focus:ring-transparent;
+}
+
+.form-label {
+    @apply font-secondary text-dark mb-4 block text-xl font-normal text-left;
+}

@@ -10,10 +10,10 @@ name = "Erfolgsgeschichten"
 url = "/case-studies"
 weight = 2
 
-[[main]]
-name = "Kontakt"
-url = "/kontakt"
-weight = 4
+# [[main]]
+# name = "Kontakt"
+# url = "/kontakt"
+# weight = 4
 
 [[footer]]
 name = "Datenschutz"
