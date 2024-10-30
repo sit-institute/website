@@ -1,20 +1,23 @@
-<div class="bg-body flex flex-col">
-  {{ $image := .Params.image }}
-  <div class="w-full mb-4 object-fill hidden md:block">
-    {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full h-full object-cover"
-    "Command" "Fill" "Size" "400x220 center") }}
-  </div>
-
-  <div class="mt-4 mb-2">
-    <h2 class="text-4xl text-center mb-6 md:text-2xl">
-      <a href="{{ .RelPermalink }}">
-        {{ .Title }}
-      </a>
-    </h2>
-    </div>
-    <div class="block md:hidden">
+<div class="bg-body flex flex-col rounded-lg shadow-lg">
+  <div class="px-6 pt-8">
+    {{ $image := .Params.image }}
+    <div class="w-full mb-4 object-fill hidden md:block">
       {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full h-full object-cover"
       "Command" "Fill" "Size" "400x220 center") }}
     </div>
-    <p class="">{{ .Summary }}</p>
+
+      <h2 class="text-center mb-4 md:mb-0 text-4xl md:text-2xl">
+        <a href="{{ .RelPermalink }}">
+          {{ .Title }}
+        </a>
+      </h2>
+      <div class="block md:hidden">
+        {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full h-full object-cover"
+                                                                                "Command" "Fill" "Size" "400x220 center") }}
+      </div>
+      <p class="mt-6 md:mt-4">{{ .Summary }}</p>
+      </div>
+      <a class="btn btn-primary mt-6 w-full rounded-t-none text-center" href="{{ .RelPermalink }}">
+        mehr erfahren
+      </a>
 </div>

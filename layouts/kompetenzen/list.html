@@ -5,11 +5,9 @@
   <div class="container">
     <div class="row justify-center gap-x-4">
       <div class="col-12 lg:col-10">
-        <div class="hidden md:block float-left mr-10 mb-6 xl:mb-0">
+        <div class="w-full md:w-auto md:float-left mb-8 md:mr-10 md:mb-5 xl:mb-0 flex justify-center">
           {{ $image := resources.Get "images/karsten-aiefm-2024.jpg" }}
-          {{ partial "image" (dict "Src" $image "Class" "object-cover rounded-md shadow-md" "Size" "400x270 left"
-          "Command"
-          "Fill") }}
+          {{ partial "image" (dict "Src" $image "Alt" "Karsten" "Loading" "eager" "Class" "rounded-md shadow-md" "Size" "400x270 left" "Command" "Fill") }}
         </div>
         <div class="content">
           <p class="text-2xl md:text-lg font-medium mt-0">
@@ -17,12 +15,6 @@
             maßgeschneiderte Lösungen, die Ihr Unternehmen &ndash; vom Start-up bis zur etablierten
             Organisation &ndash; bei Zukunfts- und Wettbewerbsfähigkeit unterstützen.
           </p>
-          <div class="md:hidden mt-6 mb-12">
-            {{ $image := resources.Get "images/karsten-aiefm-2024.jpg" }}
-            {{ partial "image" (dict "Src" $image "Class" "object-cover shadow-md" "Size" "400x150 left"
-            "Command"
-            "Fill") }}
-          </div>
           <p class="text-base">
             Durch gezielte IT-Beratung werden Strategien entwickelt, die optimal auf Ihre Ziele abgestimmt
             sind. Die prototypische Softwareentwicklung prüft frühzeitig die Machbarkeit neuer Ansätze und generiert
@@ -35,14 +27,14 @@
     </div>
 </section>
 
-<section class="section-sm">
+<section class="section-sm border-t-2 bg-theme-light">
   <div class="container">
     <div class="row gx-5">
-      <div class="lg:col-12">
-        <div class="row gx-5">
+      <div class="md:col-12 px-8">
+        <div class="row gx-4 gy-5 2xl:gx-5 justify-center">
           {{ $paginator:= .Paginate .RegularPages }}
           {{ range $paginator.Pages }}
-          <div class="md:col-4 mb-14">
+          <div class="md:col-6 xl:col-4">
             {{ partial "components/category-card" . }}
           </div>
           {{ end }}
