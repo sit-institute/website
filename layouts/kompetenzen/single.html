@@ -9,7 +9,7 @@
         {{ .Content }}
       </div>
       <div class="lg:col-4 xl:col-4">
-        <h2 class="text-2xl mb-6">{{ T "related_case_studies" }}</h2>
+        <h2 class="text-2xl mb-6">Erfolgsgeschichten</h2>
         {{ $projects := (where site.RegularPages "Section" "eq" "case-studies") }}
         {{ $categories := slice .Title }}
         {{ $related := where $projects "Params.categories" "intersect" $categories }}

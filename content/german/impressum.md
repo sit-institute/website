@@ -8,8 +8,8 @@ title: "Impressum"
 Magazinstr. 15a  
 01099 Dresden
 
-Geschäftsführer: Dr. Karsten Wendt & Peter Heisig
-Handelsregister: HRB 44323
+Geschäftsführer: Dr. Karsten Wendt & Peter Heisig  
+Handelsregister: HRB 44323  
 Amtsgericht Dresden
 
 ## Kontakt
