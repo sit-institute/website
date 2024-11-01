@@ -1,17 +1,32 @@
 {{/* Tag-Detailansicht */}}
 {{ define "main" }}
 {{ partial "page-header" . }}
+{{ $caseStudies := where .Data.Pages "Section" "case-studies" }}
+{{ $kompetenzen := where .Data.Pages "Section" "kompetenzen" }}
+{{ $hasCaseStudies := len $caseStudies }}
+{{ $hasKompetenzen := len $kompetenzen }}
 
-
-<section class="section">
+{{ if $hasCaseStudies }}
+<section class="section-sm">
     <div class="container">
         <div class="row gx-5">
-            <!-- blog posts -->
-            <div class="lg:col-8">
+            <!-- Case Studies -->
+            <div class="lg:col-10 mx-auto">
+                <h2 class="mb-4">Erfolgsgeschichten</h2>
+                <div class="row mb-10">
+                    <p class="text-lg">
+                        Diese Erfolgsgeschichten zum Thema <i>{{ .Title }}</i> zeigen, wie innovative Lösungen umgesetzt
+                        wurden, um
+                        Effizienz zu steigern,
+                        Prozesse zu optimieren und Nachhaltigkeit zu fördern. Die vorgestellten Projekte spiegeln die
+                        Vielfalt und
+                        Spezialisierung unserer Kompetenzen wider.
+                    </p>
+                </div>
                 <div class="row">
-                    {{ range .Data.Pages }}
-                    <div class="md:col-6 mb-14">
-                        {{ partial "components/blog-card" . }}
+                    {{ range $caseStudies }}
+                    <div class="lg:col-4 md:col-6 mb-14">
+                        {{ partial "components/case-study-card" . }}
                     </div>
                     {{ end }}
                 </div>
@@ -19,4 +34,39 @@
         </div>
     </div>
 </section>
+{{ end }}
+
+{{ if $hasKompetenzen }}
+{{ $sectionClasses := "section-sm" }}
+{{ if $hasCaseStudies }}
+{{ $sectionClasses = add $sectionClasses " bg-gradient" }}
+{{ end }}
+{{ with $sectionClasses }}
+<section class="{{ . }}">{{ end }}
+    <div class="container">
+        <div class="row justify-center">
+            <!-- Categories -->
+            <div class="lg:col-10">
+                <h2 class="mb-4">Kompetenzen</h2>
+                <div class="row mb-10">
+                    <p class="text-lg">
+        
+                        Unsere Kompetenzen beim Thema <i>{{ .Title }}</i> decken ein breites Spektrum moderner
+                        Lösungsansätze
+                        ab. Wir bieten maßgeschneiderte Strategien, um Prozesse effizienter zu gestalten, innovative
+                        Technologien einzusetzen und nachhaltige Entwicklungen voranzutreiben.
+                    </p>
+                </div>
+                <div class="row">
+                                {{ range $kompetenzen }}
+                                <div class="lg:col-6 xl:col-4 mb-14">
+                                    {{ partial "components/category-card" . }}
+                                </div>
+                                {{ end }}
+                                </div>
+            </div>
+            </div>
+            </div>
+            </section>
+{{ end }}
 {{ end }}

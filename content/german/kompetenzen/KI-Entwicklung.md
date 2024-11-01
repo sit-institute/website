@@ -1,9 +1,11 @@
 ---
 title: KI-Entwicklung
 date: 2024-10-02T11:22:00.000Z
-lastmod: 2024-10-29T16:22:00.000Z
+lastmod: 2024-10-30T14:45:00.000Z
 notionUrl: https://www.notion.so/KI-Entwicklung-c995591e66e04719b1045cdd349f1338
-tags: []
+tags:
+  - Startup
+  - Digitalisierung
 summary: Nutzen Sie die Möglichkeiten der künstlichen Intelligenz (KI), um Ihre
   Geschäftsprozesse effizienter zu gestalten. Unsere Lösungen zur KI-Entwicklung
   sind individuell auf Ihre Anforderungen abgestimmt, sei es für Datenanalysen,
