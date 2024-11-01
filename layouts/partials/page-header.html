@@ -5,10 +5,8 @@
         <h1>
           {{ T (printf "%s" .Title) | default .Title | title }}
         </h1>
+        {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-2") }}
       </div>
     </div>
-    {{/* <div class="row text-left">
-      {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-2") }}
-    </div> */}}
   </div>
 </section>

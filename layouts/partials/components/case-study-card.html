@@ -41,7 +41,7 @@
       {{ range $tags }}
       <li class="inline-block">
         <a class="hover:bg-primary block rounded text-sm bg-theme-light px-3 py-2 hover:text-white" href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
-          {{ . }}
+          {{ lower . }}
         </a>
       </li>
       {{ end }}

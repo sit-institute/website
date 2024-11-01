@@ -1,14 +1,12 @@
 {{/* Tag-Übersicht */}}
 {{ define "main" }}
-{{ partial "page-header" . }}
-
-
+{{ partial "page-header" . dict "lower" true }}
 <section class="section-sm md:section">
     <div class="container">
         <div class="row">
             <p class="prose text-lg md:col-6 mx-auto text-center">
-                Auf dieser Seite sind alle Schlagworte aufgelistet, die Themen aus Erfolgsgeschichten und Kompetenzen
-                repräsentieren. Die Zahlen zeigen die Anzahl der Beiträge, die zu jedem Thema
+                Auf dieser Seite sind alle Themen aus Erfolgsgeschichten und Kompetenzen
+                aufgelistet. Die Zahlen zeigen die Anzahl der Beiträge, die zu jedem Thema
                 verfügbar sind.
             </p>
         </div>
@@ -27,7 +25,7 @@
                         <li class="m-3 inline-block relative">
                             <a href="{{ .Page.Permalink }}" class="bg-theme-light text-dark   block rounded px-4 py-2 text-xl 
                      hover:bg-primary hover:text-white not-prose">
-                                {{ .Page.Title }}
+                                {{ lower .Page.Title }}
                             </a>
                             <span
                                 class="bg-theme-light text-light text-sm font-mono font-semibold me-2 px-2.5 py-0.5 rounded-full absolute top-[-0.8rem] right-[-1.3rem]">
