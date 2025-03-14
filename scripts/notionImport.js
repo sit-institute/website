@@ -17,6 +17,10 @@ const download = async (url, path) => {
   const fileName = url.split('?')[0].split('/').pop();
   const filePath = `assets/${path}/${fileName}`;
 
+  if (!/\.[a-zA-Z0-9]+$/.test(fileName)) {
+    throw new Error(`The file at ${url} does not have an extension.`);
+  }
+
   currentImages.push(filePath);
 
   if (existsSync(filePath)) {
@@ -71,6 +75,8 @@ const loadCaseStudies = async () => {
     const caseStudy = {};
 
     caseStudy["title"] = props.Name.title[0].plain_text;
+    console.log(`- ${caseStudy["title"]}`);
+
     caseStudy["publishDate"] = props.Publikation.date?.start;
     caseStudy["expiryDate"] = props.Publikation.date?.end ?? undefined;
     caseStudy["summary"] = props.Zusammenfassung.rich_text[0].plain_text;
@@ -125,6 +131,8 @@ const loadCompetencies = async () => {
     const competency = {};
 
     competency["title"] = props.Name.title[0].plain_text;
+    console.log(`- ${competency["title"]}`);
+
     competency["date"] = page.created_time;
     competency["lastmod"] = page.last_edited_time;
     competency["notionUrl"] = page.url;
@@ -162,6 +170,8 @@ const loadTestimonials = async () => {
     const contact = await notion.pages.retrieve({
       page_id: testimonial.properties.Kontakt.relation[0].id });
     
+    console.log(`- ${contact.properties.Name.title[0].plain_text}`);
+
     md["testimonials"].push({
       name: contact.properties.Name.title[0].plain_text,
       designation: testimonial.properties.Position.title[0].plain_text,
